@@ -38,9 +38,13 @@ const segmentContent = {
 
 // Timeout für verzögertes Ausblenden
 let hideTimeout = null
+// Variable um zu tracken, welches Segment aktiv ist
+let activeSegment = null
 
 // Hilfsfunktion: Card anzeigen
 function showCard(content, segment) {
+    activeSegment = segment
+
     // Vorheriges Timeout abbrechen
     if (hideTimeout) {
         clearTimeout(hideTimeout)
@@ -104,11 +108,23 @@ segments.forEach(segment => {
 
     // Keyboard support
     segment.addEventListener('focus', () => showCard(content, segment))
-    segment.addEventListener('blur', hideCard)
+    segment.addEventListener('blur', (event) => {
+        // Prüfen, ob Fokus zur Card geht
+        const goingToCard = infoCard.contains(event.relatedTarget)
+        if (!goingToCard) {
+            hideCard()
+        }
+    })
     segment.addEventListener('keydown', (event) => {
         if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault() // Verhindert scrollen bei Space
             window.location.href = content.link
+        }
+
+        // Tab -> zum Button in der Card
+        if (event.key === 'Tab' && !event.shiftKey) {
+            event.preventDefault()
+            cardButton.focus()
         }
     })
 })
@@ -123,3 +139,47 @@ infoCard.addEventListener('mouseenter', () => {
 })
 
 infoCard.addEventListener('mouseleave', hideCard)
+
+cardButton.addEventListener('focus', () => {
+    // Timeout abbrechen, wenn Button fokussiert wird
+    if (hideTimeout) {
+        clearTimeout(hideTimeout)
+        hideTimeout = null
+    }
+})
+
+cardButton.addEventListener('blur', (event) => {
+    // Prüfen, ob Fokus zurück zu einem Segment geht
+    const goingToSegment = event.relatedTarget?.closest('.core-segment')
+    if (!goingToSegment) {
+        hideCard()
+    }
+})
+
+// Shift+Tab → zurück zum Segment, Tab -> Nächstes Segment
+cardButton.addEventListener('keydown', (event) => {
+    if (event.key === 'Tab') {
+        const segmentsArray = Array.from(segments)
+        const currentIndex = segmentsArray.indexOf(activeSegment)
+
+        if (event.shiftKey) {
+            // Shift+Tab → zurück zum Segment
+            event.preventDefault()
+            if (activeSegment) {
+                activeSegment.focus()
+            }
+        } else {
+            // Tab → zum nächsten Segment
+            const nextIndex = currentIndex + 1
+
+            if (nextIndex < segmentsArray.length) {
+                event.preventDefault()
+                segmentsArray[nextIndex].focus()
+            } else {
+                // Letztes Segment → normaler Tab-Flow (raus aus Komponente)
+                hideCard()
+                // Kein preventDefault → Browser übernimmt
+            }
+        }
+    }
+})
