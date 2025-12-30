@@ -1,6 +1,7 @@
 :root {
     --color-primary: #667b68;
     --color-secondary: #e8d5b5;
+    --color-text: #333;
     --font-family: 'Ubuntu', sans-serif;
 }
 
@@ -53,4 +54,49 @@ body {
 /* Nicht-gehoverte Segmente abdunkeln */
 svg:has(.core-segment:hover) .core-segment:not(:hover) {
     opacity: 0.5;
+}
+
+/* Info Card */
+.info-card  {
+    position: absolute;
+    background: white;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    max-width: 280px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.info-card[hidden] {
+    display: none;
+}
+
+.info-card__title {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.info-card__text {
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.info-card__button {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+
+.info-card__button:hover {
+    background: var(--color-secondary);
+    color:var(--color-primary);
 }
