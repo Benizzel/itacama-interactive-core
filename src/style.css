@@ -114,6 +114,13 @@ svg:has(.core-segment:hover) .core-segment:not(:hover) {
     stroke-width: 4px;
 }
 
+.info-card__button:focus {
+    outline: none; /* Browser-Standard entfernen */
+    background: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+
 /* Für Keyboard-User: gleicher Effekt wie Hover */
 .core-segment:focus {
     opacity: 1;
