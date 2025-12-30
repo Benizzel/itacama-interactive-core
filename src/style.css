@@ -49,6 +49,8 @@ body {
 }
 
 .core-segment:hover circle{
+    stroke: var(--color-secondary);
+    stroke-width: 4px;
     filter: brightness(1.1);
 }
 
@@ -100,4 +102,27 @@ svg:has(.core-segment:hover) .core-segment:not(:hover) {
 .info-card__button:hover {
     background: var(--color-secondary);
     color:var(--color-primary);
+}
+
+/* Accessibility: Fokus-Styles */
+.core-segment:focus {
+    outline: none; /* Browser-Standard entfernen */
+}
+
+.core-segment:focus circle {
+    stroke: var(--color-secondary);
+    stroke-width: 4px;
+}
+
+/* Für Keyboard-User: gleicher Effekt wie Hover */
+.core-segment:focus {
+    opacity: 1;
+}
+
+.core-segment:focus circle {
+    filter: brightness(1.1);
+}
+
+svg:has(.core-segment:focus) .core-segment:not(:focus) {
+    opacity: 0.5;
 }
