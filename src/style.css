@@ -36,6 +36,12 @@ body {
     opacity: 0.85;
 }
 
+.core-segment text {
+    text-anchor: middle;
+    fill: white;
+    font-size: 14px;
+}
+
 .core-segment:hover {
     opacity: 1; /* Nötig, sonst würde Inline-Attribute von 0.85 im svg gewinnen */
 }
