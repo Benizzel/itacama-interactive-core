@@ -15,62 +15,102 @@ const segmentContent = {
     'produkt-strategie': {
         title: 'Produkt-Strategie',
         text: 'Produkt lorem ipsum dolor sit amet.',
-        link: '/services/produkt-strategie'
+        link: '/services/produkt-strategie',
+        cardPosition: 'left'
     },
     'technik': {
         title: 'Technik',
         text: 'Technik lorem ipsum dolor sit amet.',
-        link: '/services/technik'
+        link: '/services/technik',
+        cardPosition: 'right'
     },
     'organisation': {
         title: 'Organisation',
         text: 'Organisation lorem ipsum dolor sit amet.',
-        link: '/services/organisation'
+        link: '/services/organisation',
+        cardPosition: 'right'
     },
     'zentrum': {
         title: 'Qualität & Exzellenz',
         text: 'Qualität lorem ipsum dolor sit amet.',
-        link: '/services/Qualitaet-Exzellenz'
+        link: '/services/Qualitaet-Exzellenz',
+        cardPosition: 'right'
     }
 }
 
-// Event Listeners für jedes Segment
+// Timeout für verzögertes Ausblenden
+let hideTimeout = null
+
+// Hilfsfunktion: Card anzeigen
+function showCard(content, segment) {
+    // Vorheriges Timeout abbrechen
+    if (hideTimeout) {
+        clearTimeout(hideTimeout)
+        hideTimeout = null
+    }
+
+    // Inhalt setzen
+    cardTitle.textContent = content.title
+    cardText.textContent = content.text
+    cardButton.href = content.link
+
+    // Anzeigen (muss vor Positionsberechnung sein, damit Card Grösse hat)
+    infoCard.hidden = false
+
+    // Position berechnen
+    const app = document.getElementById('app')
+    const appRect = app.getBoundingClientRect()
+    const segmentRect = segment.getBoundingClientRect()
+    const cardRect = infoCard.getBoundingClientRect()
+
+    // Segment-Position relativ zu #app
+    const segmentTop = segmentRect.top - appRect.top
+    const segmentLeft = segmentRect.left - appRect.left
+    const segmentRight = segmentLeft + segmentRect.width
+
+    // Card vertikal zum Segment zentrieren
+    const top = segmentTop + (segmentRect.height / 2) - (cardRect.height / 2)
+
+    // Card link oder rechts positionieren
+    let left
+    if (content.cardPosition === 'left') {
+        left = segmentLeft - cardRect.width - 20 // 20px Abstand
+    } else {
+        left = segmentRight + 20 // 20px Abstand
+    }
+
+    infoCard.style.top = `${top}px`
+    infoCard.style.left = `${left}px`
+}
+
+// Hilfsfunktion: Card verstecken (mit Verzögerung)
+function hideCard() {
+    hideTimeout = setTimeout(() => {
+        infoCard.hidden = true
+    }, 100) // 100ms Zeit um zur Card zu kommen
+}
+
+// Event Listeners für Segmente
 segments.forEach(segment => {
     const id = segment.id
     const content = segmentContent[id]
 
-    // Fallback, wenn kein Content existiert
     if (!content) return
 
-    // Mouse Enter - Card zeigen und positionieren
-    segment.addEventListener('mouseenter', (event) => {
-        cardTitle.textContent = content.title
-        cardText.textContent = content.text
-        cardButton.href = content.link
-
-        // Card anzeigen
-        infoCard.hidden = false
-
-        // Position berechnen
-        const app = document.getElementById('app')
-        const appRect = app.getBoundingClientRect()
-
-        // Mausposition relativ zum #app Container
-        const x = event.clientX - appRect.left
-        const y = event.clientY - appRect.top
-
-        // Card positionieren (mit Offset, damit sie nicht unter der Maus ist)
-        infoCard.style.left = `${x + 20}px`
-        infoCard.style.top = `${y + 20}px`
-    })
-
-    // Mouse Leave - Card verstecken
-    segment.addEventListener('mouseleave', () => {
-        infoCard.hidden = true
-    })
-
-    // Click - Navigieren
+    segment.addEventListener('mouseenter', () => showCard(content, segment))
+    segment.addEventListener('mouseleave', hideCard)
     segment.addEventListener('click', () => {
         window.location.href = content.link
     })
 })
+
+// Event Listeners für die Card selbst
+infoCard.addEventListener('mouseenter', () => {
+    // Timeout abbrechen, wenn Maus auf Card kommt
+    if (hideTimeout) {
+        clearTimeout(hideTimeout)
+        hideTimeout = null
+    }
+})
+
+infoCard.addEventListener('mouseleave', hideCard)
