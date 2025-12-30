@@ -24,3 +24,22 @@ body {
     max-width: 800px;
     padding: 2rem;
 }
+
+/* Interactive Core Styles */
+.core-segment {
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.core-segment:hover {
+    opacity: 1 !important;
+}
+
+.core-segment:hover circle{
+    filter: brightness(1.1);
+}
+
+/* Nicht-gehoverte Segmente abdunkeln */
+svg:has(.core-segment:hover) .core-segment:not(:hover) {
+    opacity: 0.5;
+}
