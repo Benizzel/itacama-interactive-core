@@ -31,8 +31,13 @@ body {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.core-segment circle {
+    fill: var(--color-primary);
+    opacity: 0.85;
+}
+
 .core-segment:hover {
-    opacity: 1 !important;
+    opacity: 1; /* Nötig, sonst würde Inline-Attribute von 0.85 im svg gewinnen */
 }
 
 .core-segment:hover circle{
