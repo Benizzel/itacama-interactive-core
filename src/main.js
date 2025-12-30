@@ -97,10 +97,21 @@ segments.forEach(segment => {
 
     if (!content) return
 
+    // Mouse events
     segment.addEventListener('mouseenter', () => showCard(content, segment))
     segment.addEventListener('mouseleave', hideCard)
     segment.addEventListener('click', () => {
         window.location.href = content.link
+    })
+
+    // Keyboard support
+    segment.addEventListener('focus', () => showCard(content, segment))
+    segment.addEventListener('blur', hideCard)
+    segment.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault() // Verhindert scrollen bei Space
+            window.location.href = content.link
+        }
     })
 })
 
