@@ -11,33 +11,33 @@
 <body>
 <div id="app">
     <h1>Itacama Interactive Core</h1>
-    <svg width="600" height="600" viewBox="0 0 600 600">
-        <!-- Produkt-Strategie (oben links) -->
-        <circle
-                cx="175"
-                cy="160"
-                r="130"
-                fill="var(--color-primary)"
-                opacity="0.85"
-        />
+    <svg width="500" height="450" viewBox="0 0 500 450" role="img" aria-label="Itacama Interactive Core Diagramm">
 
-        <!-- Technik (oben rechts -->
-        <circle
-            cx="325"
-            cy="160"
-            r="130"
-            fill="var(--color-primary)"
-            opacity="0.85"
-        />
+        <!-- Produkt-Strategie -->
+        <g id="produkt-strategie" class="core-segment" data-title="Produkt-Strategie" data-link="/services/produkt-strategie">
+            <circle cx="175" cy="160" r="130" fill="var(--color-primary)" opacity="0.85"/>
+            <text x="130" y="120" text-anchor="middle" fill="white" font-size="18">PRODUKT-</text>
+            <text x="130" y="142" text-anchor="middle" fill="white" font-size="18">STRATEGIE</text>
+        </g>
 
-        <!-- Organisation (unten mitte) -->
-        <circle
-            cx="250"
-            cy="290"
-            r="130"
-            fill="var(--color-primary)"
-            opacity="0.85"
-        />
+        <!-- Technik -->
+        <g id="technik" class="core-segment" data-title="Technik" data-link="/services/technik">
+            <circle cx="325" cy="160" r="130" fill="var(--color-primary)" opacity="0.85"/>
+            <text x="360" y="130" text-anchor="middle" fill="white" font-size="18">TECHNIK</text>
+        </g>
+
+        <!-- Organisation -->
+        <g id="organisation" class="core-segment" data-title="Organisation" data-link="/services/organisation">
+            <circle cx="250" cy="290" r="130" fill="var(--color-primary)" opacity="0.85"/>
+            <text x="250" y="340" text-anchor="middle" fill="white" font-size="18">ORGANISATION</text>
+        </g>
+
+        <!-- Zentrum (nicht interaktiv) -->
+        <g id="zentrum" class="core-segment" data-title="Zentrum" data-link="/services/zentrum">
+            <text x="250" y="200" text-anchor="middle" fill="white" font-size="14">QUALITÄT &</text>
+            <text x="250" y="218" text-anchor="middle" fill="white" font-size="14">EXZELLENZ</text>
+        </g>
+
     </svg>
 </div>
 <script type="module" src="src/main.js"></script>
