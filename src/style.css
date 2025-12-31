@@ -38,6 +38,11 @@ body {
     opacity: 0.85;
 }
 
+.core-segment ellipse {
+    fill: var(--color-primary);
+    opacity: 0.00;
+}
+
 .core-segment text {
     text-anchor: middle;
     fill: white;
@@ -49,6 +54,13 @@ body {
 }
 
 .core-segment:hover circle{
+    stroke: var(--color-secondary);
+    stroke-width: 4px;
+    filter: brightness(1.1);
+}
+
+.core-segment:hover ellipse{
+    opacity: 1;
     stroke: var(--color-secondary);
     stroke-width: 4px;
     filter: brightness(1.1);
