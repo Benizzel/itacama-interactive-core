@@ -45,3 +45,71 @@ export function initPageLoadAnimation() {
         console.log('✅ Page Load Animation durchgeführt.')
     }, 100);
 }
+
+/**
+ * Hover Animation
+ * Bubble Glow-Effekt und Skalierung beim Mouse-Over
+ */
+
+export function initHoverAnimations() {
+    console.log('🎯 Initialisiere Hover Animationen...');
+
+    const bubbleGroups = document.querySelectorAll('.bubble-group');
+
+    bubbleGroups.forEach(group => {
+        const bubble = group.querySelector('.bubble');
+        const glow = group.querySelector('.bubble-glow');
+
+        // Mouse Enter
+        group.addEventListener('mouseenter', () => {
+            // Glow einblenden
+            gsap.to(glow, {
+                opacity: 0.6,
+                duration: 0.4,
+                ease: 'power2.out',
+            });
+
+            // Bubble vergrössern
+            gsap.to(bubble, {
+                scale: 1.1,
+                transformOrigin: '50% 50%',
+                duration: 0.4,
+                ease: 'power2.out',
+            });
+
+            // Glow vergrössern
+            gsap.to(glow, {
+                scale: 1.1,
+                transformOrigin: '50% 50%',
+                duration: 0.4,
+                ease: 'power2.out',
+            });
+        });
+
+        // Mouse Leave (Maus weg)
+        group.addEventListener('mouseleave', () => {
+            // Glow ausblenden
+            gsap.to(glow, {
+                opacity: 0,
+                duration: 0.3,
+                ease: 'power2.in'
+            });
+
+            // Bubble zurück auf normale Größe
+            gsap.to(bubble, {
+                scale: 1,
+                duration: 0.3,
+                ease: 'power2.in'
+            });
+
+            // Glow auch zurück
+            gsap.to(glow, {
+                scale: 1,
+                duration: 0.3,
+                ease: 'power2.in'
+            });
+        });
+    });
+
+    console.log('✅ Hover Animationen aktiviert!');
+}

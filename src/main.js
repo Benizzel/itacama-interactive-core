@@ -5,7 +5,7 @@
 
 import './style.css'
 import { createCoreSVG } from './svg-builder.js';
-import {initPageLoadAnimation} from "./animations.js";
+import {initHoverAnimations, initPageLoadAnimation} from "./animations.js";
 
 // === INITIALISIERUNG ===
 
@@ -20,5 +20,6 @@ console.log('✅ SVG erfolgreich geladen!');
 
 // Animation starten
 initPageLoadAnimation();
+initHoverAnimations()
 
 console.log('✨ Alles bereit!');
