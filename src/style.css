@@ -1,3 +1,7 @@
+/* ==========================================
+   GLOBAL STYLES
+   ========================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +13,10 @@ body {
   background: #f9f9f9;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 }
+
+/* ==========================================
+   CONTAINER
+   ========================================== */
 
 .container {
   max-width: 1000px;
@@ -23,6 +31,10 @@ h1 {
   margin-bottom: 3rem;
 }
 
+/* ==========================================
+   CORE WRAPPER
+   ========================================== */
+
 #core-wrapper {
   background: white;
   border-radius: 8px;
@@ -30,22 +42,34 @@ h1 {
   padding: 2rem;
 }
 
-/* SVG Styles */
+/* ==========================================
+   SVG ELEMENTS
+   ========================================== */
+
 .core-svg {
   width: 100%;
   height: auto;
   display: block;
+  shape-rendering: geometricPrecision;
 }
+
+/* ==========================================
+   BUBBLES
+   ========================================== */
 
 .bubble {
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;   /* nur für Hover */
 }
 
 .bubble:hover {
-  opacity: 0.85;
+  opacity: 2;
 }
 
+/* ==========================================
+   DECORATIVE LINES
+   ========================================== */
+
 .decorative-lines path {
-  stroke-dasharray: 5, 5;
+  /* Styles werden von GSAP gesteuert */
 }
