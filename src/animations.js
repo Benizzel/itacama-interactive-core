@@ -48,7 +48,7 @@ export function initPageLoadAnimation() {
 
 /**
  * Hover Animation
- * Bubble Glow-Effekt und Skalierung beim Mouse-Over
+ * Bubble Gradiant und Skalierung beim Mouse-Over
  */
 
 export function initHoverAnimations() {
@@ -62,23 +62,12 @@ export function initHoverAnimations() {
 
         // Mouse Enter
         group.addEventListener('mouseenter', () => {
-            // Glow einblenden
-            gsap.to(glow, {
-                opacity: 0.6,
-                duration: 0.4,
-                ease: 'power2.out',
-            });
+
+            //TODO Wieso wird Gradiant nicht auf Hover gesetzt?
+            group.setAttribute('fill', 'url(#bubbleGradientHover)');
 
             // Bubble vergrössern
             gsap.to(bubble, {
-                scale: 1.1,
-                transformOrigin: '50% 50%',
-                duration: 0.4,
-                ease: 'power2.out',
-            });
-
-            // Glow vergrössern
-            gsap.to(glow, {
                 scale: 1.1,
                 transformOrigin: '50% 50%',
                 duration: 0.4,
@@ -88,22 +77,12 @@ export function initHoverAnimations() {
 
         // Mouse Leave (Maus weg)
         group.addEventListener('mouseleave', () => {
-            // Glow ausblenden
-            gsap.to(glow, {
-                opacity: 0,
-                duration: 0.3,
-                ease: 'power2.in'
-            });
 
-            // Bubble zurück auf normale Größe
+            // Zurück zum normalen Gradient
+            bubble.setAttribute('fill', 'url(#bubbleGradient)');
+
+            // Bubble zurück auf normale Grösse
             gsap.to(bubble, {
-                scale: 1,
-                duration: 0.3,
-                ease: 'power2.in'
-            });
-
-            // Glow auch zurück
-            gsap.to(glow, {
                 scale: 1,
                 duration: 0.3,
                 ease: 'power2.in'

@@ -62,12 +62,7 @@ h1 {
 }
 
 .bubble {
-  transition: opacity 0.3s ease;   /* nur für Hover */
-}
-
-.bubble-glow {
-  transition: opacity 0.4s ease;
-  pointer-events: none; /* Verhindert, dass Glow Clicks abfängt */
+  transition: opacity 0.4s ease;   /* nur für Hover */
 }
 
 .bubble:hover {

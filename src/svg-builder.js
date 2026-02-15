@@ -19,6 +19,12 @@ export function createCoreSVG() {
         <stop offset="100%" style="stop-color:#5a6b5c;stop-opacity:0.9" />
       </radialGradient>
       
+      <!-- Bubble Gradient HOVER -->
+      <radialGradient id="bubbleGradientHover">
+        <stop offset="0%" style="stop-color:#f4d03f;stop-opacity:0.95" />
+        <stop offset="100%" style="stop-color:#7a8d7c;stop-opacity:1" />
+      </radialGradient>
+      
       <!-- Center Gradient -->
       <radialGradient id="centerGradient">
         <stop offset="0%" style="stop-color:#f4f1e8;stop-opacity:1" />
@@ -29,7 +35,7 @@ export function createCoreSVG() {
       <!-- Glow Filter (NEU!) -->
       <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
         <!--Weichzeichner -->
-        <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+        <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
         <feMerge>
           <feMergeNode in="coloredBlur"/>
           <feMergeNode in="SourceGraphic"/>
@@ -48,19 +54,16 @@ export function createCoreSVG() {
     
     <!-- BUBBLE 1: Produkt-Strategie --> 
     <g class="bubble-group" data-bubble="produkt">
-        <ellipse class="bubble-glow" cx="250" cy="200" rx="140" ry="120" fill="#f4f1e8" opacity="0" filter="url(#glow)" transform="rotate(-15 250 200)"/>
         <ellipse class="bubble" cx="250" cy="200" rx="140" ry="120" fill="url(#bubbleGradient)" data-bubble="produkt" transform="rotate(-15 250 200)"/>
     </g>
     
     <!-- BUBBLE 2: Technik -->
     <g class="bubble-group" data-bubble="technik">
-      <ellipse class="bubble-glow" cx="550" cy="200" rx="140" ry="120" fill="#f4f1e8" opacity="0" filter="url(#glow)" transform="rotate(15 550 200)"/>
       <ellipse class="bubble" cx="550" cy="200" rx="140" ry="120" fill="url(#bubbleGradient)" data-bubble="technik" transform="rotate(15 550 200)"/>
     </g>
     
     <!-- BUBBLE 3: Organisation -->
     <g class="bubble-group" data-bubble="organisation">
-      <ellipse class="bubble-glow" cx="400" cy="420" rx="140" ry="120" fill="#f4f1e8" opacity="0" filter="url(#glow)" transform="rotate(0 400 420)"/>
       <ellipse class="bubble" cx="400" cy="420" rx="140" ry="120" fill="url(#bubbleGradient)" data-bubble="organisation" transform="rotate(0 400 420)"/>
     </g>
     
