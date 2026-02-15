@@ -25,19 +25,44 @@ export function createCoreSVG() {
         <stop offset="50%" style="stop-color:#d4cfbd;stop-opacity:0.8" />
         <stop offset="100%" style="stop-color:#8b9e8f;stop-opacity:0" />
       </radialGradient>
+      
+      <!-- Glow Filter (NEU!) -->
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <!--Weichzeichner -->
+        <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>      
     </defs>
     
-    <!-- Decorative Lines -->
+    <!-- DECORATIVE LINES -->
     <g class="decorative-lines">
       <path d="M 120 150 Q 200 180, 300 260" stroke="#d4cfbd" stroke-width="2" fill="none" opacity="0.6"/>
       <path d="M 680 150 Q 600 180, 500 260" stroke="#d4cfbd" stroke-width="2" fill="none" opacity="0.6"/>
       <path d="M 400 540 Q 400 480, 400 360" stroke="#d4cfbd" stroke-width="2" fill="none" opacity="0.6"/>
     </g>
     
-    <!-- Bubbles -->
-    <ellipse cx="250" cy="200" rx="140" ry="120" fill="url(#bubbleGradient)" class="bubble" data-bubble="produkt" transform="rotate(-15 250 200)"/>
-    <ellipse cx="550" cy="200" rx="140" ry="120" fill="url(#bubbleGradient)" class="bubble" data-bubble="technik" transform="rotate(15 550 200)"/>
-    <ellipse cx="400" cy="420" rx="140" ry="120" fill="url(#bubbleGradient)" class="bubble" data-bubble="organisation" transform="rotate(0 400 420)"/>
+    <!-- BUBBLES mit Glow -->
+    
+    <!-- BUBBLE 1: Produkt-Strategie --> 
+    <g class="bubble-group" data-bubble="produkt">
+        <ellipse class="bubble-glow" cx="250" cy="200" rx="140" ry="120" fill="#f4f1e8" opacity="0" filter="url(#glow)" transform="rotate(-15 250 200)"/>
+        <ellipse class="bubble" cx="250" cy="200" rx="140" ry="120" fill="url(#bubbleGradient)" data-bubble="produkt" transform="rotate(-15 250 200)"/>
+    </g>
+    
+    <!-- BUBBLE 2: Technik -->
+    <g class="bubble-group" data-bubble="technik">
+      <ellipse class="bubble-glow" cx="550" cy="200" rx="140" ry="120" fill="#f4f1e8" opacity="0" filter="url(#glow)" transform="rotate(15 550 200)"/>
+      <ellipse class="bubble" cx="550" cy="200" rx="140" ry="120" fill="url(#bubbleGradient)" data-bubble="technik" transform="rotate(15 550 200)"/>
+    </g>
+    
+    <!-- BUBBLE 3: Organisation -->
+    <g class="bubble-group" data-bubble="organisation">
+      <ellipse class="bubble-glow" cx="400" cy="420" rx="140" ry="120" fill="#f4f1e8" opacity="0" filter="url(#glow)" transform="rotate(0 400 420)"/>
+      <ellipse class="bubble" cx="400" cy="420" rx="140" ry="120" fill="url(#bubbleGradient)" data-bubble="organisation" transform="rotate(0 400 420)"/>
+    </g>
     
     <!-- Center Glow -->
     <ellipse cx="400" cy="290" rx="120" ry="90" fill="url(#centerGradient)"/>
