@@ -17,24 +17,27 @@ export function initInfoBox() {
         };
     });
 
-    // 2. Info-Box Elemente
-    const infoBox = document.getElementById('info-box');
-    const infoTitle = document.getElementById('info-title');
-    const infoTeaser = document.getElementById('info-teaser');
-    const infoLink = document.getElementById('info-link');
-
-    // 3. Klick auf jede Bubble
+    // 2. Klick auf jede Bubble
     document.querySelectorAll('.bubble-group').forEach(group => {
         group.addEventListener('click', () => {
             const rank = group.dataset.bubble; // z.B. "1", "2", ...
             const data = expertiseData[rank];
             if (!data) return;
 
-            infoTitle.textContent = data.title;
-            infoTeaser.textContent = data.teaser;
-            infoLink.href = `https://www.itacama.ch/expertise/${data.slug}`; //fügt href Attribut hinzu
+            // Hide all boxes
+            document.querySelectorAll('.info-box').forEach(box => {
+                box.classList.add('info-box--hidden');
+            });
 
-            infoBox.classList.remove('info-box--hidden'); // damit Info-Box angezeigt wird
+            // Change content and show box
+            const visibleBox = document.querySelector(`#info-box-${rank}`)
+            if (!visibleBox) return;
+
+            visibleBox.querySelector('.info-title').textContent = data.title
+            visibleBox.querySelector('.info-teaser').textContent = data.teaser;
+            visibleBox.querySelector('.info-link').href = `https://www.itacama.ch/expertise/${data.slug}`; //fügt href Attribut hinzu
+
+            visibleBox.classList.remove('info-box--hidden'); // damit Info-Box angezeigt wird
         });
     });
 }
