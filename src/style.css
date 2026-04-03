@@ -40,6 +40,7 @@ h1 {
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   padding: 2rem;
+  flex: 1;
 }
 
 /* ==========================================
@@ -75,4 +76,61 @@ h1 {
 
 .decorative-lines path {
   /* Styles werden von GSAP gesteuert */
+}
+
+/* ==========================================
+   INTERACTIVE WRAPPER
+   ========================================== */
+
+#interactive-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ==========================================
+   INFO BOX
+   ========================================== */
+
+.info-box {
+  flex: 0 0 280px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 2rem;
+  text-align: left;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.info-box--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.info-box h3 {
+  color: #5a6b5c;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.info-box p {
+  color: #444;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.info-box a {
+  display: inline-block;
+  background: #5a6b5c;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
