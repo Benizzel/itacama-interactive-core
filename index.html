@@ -7,12 +7,31 @@
 </head>
 <body>
 
+<!-- Container für Interactive Core -->
 <div class="container">
   <h1>itacama Interactive Core</h1>
 
-  <div id="core-wrapper">
-    <!-- SVG wird hier von JavaScript eingefügt -->
+  <!-- CMS Dummy Data - später von Webflow -->
+  <div id="expertise-data" style="display:none">
+    <div data-rank="1" data-title="Organisation" data-teaser="Wie wir zusammenarbeiten. Nachhaltige Strukturen schaffen, die Zusammenarbeit fördern." data-slug="organisation"></div>
+    <div data-rank="2" data-title="Produktstrategie" data-teaser="Produkte die wirken. Strategie die trägt." data-slug="produktstrategie"></div>
+    <div data-rank="3" data-title="Qualität" data-teaser="Qualität ist keine Checkliste, sondern eine Haltung." data-slug="qualitat"></div>
+    <div data-rank="4" data-title="Technik" data-teaser="Technologie die verbindet, nicht trennt." data-slug="technik"></div>
   </div>
+
+  <div id="interactive-wrapper">
+    <div id="core-wrapper">
+      <!-- SVG wird hier von JavaScript eingefügt -->
+    </div>
+
+    <!-- Info-Box - werden mit onClick auf Bubble eingeblendet -->
+    <div id="info-box" class="info-box info-box--hidden">
+      <h3 id="info-title"></h3>
+      <p id="info-teaser"></p>
+      <a id="info-link" href="#">Mehr erfahren</a>
+    </div>
+  </div>
+
 </div>
 
 <script type="module" src="/src/main.js"></script>
