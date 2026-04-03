@@ -15,7 +15,7 @@ export function initPageLoadAnimation() {
         console.log('🎬 Starte Page Load Animationen...');
 
         const bubbles = document.querySelectorAll('.bubble');
-        const centerGlow = document.querySelector('ellipse[fill="url(#centerGradient)"]');
+        const centerGlow = document.querySelector('.center-bubble');
         const lines = document.querySelectorAll('.decorative-lines path');
 
         lines.forEach(p => {
@@ -58,7 +58,8 @@ export function initHoverAnimations() {
 
     bubbleGroups.forEach(group => {
         const bubble = group.querySelector('.bubble');
-        const glow = group.querySelector('.bubble-glow');
+
+        if (!bubble) return; //wenn keine class=bubble in bubble group z.B. wenn nur class=center-bubble enthalten
 
         // Mouse Enter
         group.addEventListener('mouseenter', () => {

@@ -67,7 +67,7 @@ export function createCoreSVG() {
     
     <!-- BUBBLE 3 CENTER Qualität -->
     <g class="bubble-group" data-bubble="3">
-        <ellipse class="bubble" cx="400" cy="290" rx="120" ry="90" fill="url(#centerGradient)" data-bubble="3"/>
+        <ellipse class="center-bubble" cx="400" cy="290" rx="120" ry="90" fill="url(#centerGradient)" data-bubble="3"/>
         <text x="400" y="285" text-anchor="middle" fill="#5a6b5c" font-size="20" font-weight="bold">QUALITÄT &</text>
         <text x="400" y="305" text-anchor="middle" fill="#5a6b5c" font-size="20" font-weight="bold">EXZELLENZ</text>
         
