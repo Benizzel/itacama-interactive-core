@@ -32,7 +32,7 @@ export function initInfoBox() {
 
             infoTitle.textContent = data.title;
             infoTeaser.textContent = data.teaser;
-            infoLink.href = `https://www.itacama.ch/expertise/${data.slug}`;
+            infoLink.href = `https://www.itacama.ch/expertise/${data.slug}`; //fügt href Attribut hinzu
 
             infoBox.classList.remove('info-box--hidden'); // damit Info-Box angezeigt wird
         });
