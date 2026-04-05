@@ -60,7 +60,8 @@ export function createCoreSVG() {
             data-bubble="1"
             transform="rotate(-15 300 220)"
         />   
-        <text x="270" y="180" text-anchor="middle" fill="white" font-size="18" font-weight="bold">ORGANISATION</text>
+        <text x="270" y="190" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">ORGANISATION</text>
+        
     </g>
     
     <!-- BUBBLE 2: Oben rechts -->
@@ -76,7 +77,7 @@ export function createCoreSVG() {
             data-bubble="2"
             transform="rotate(15 500 220)"
         />
-        <text x="530" y="190" text-anchor="middle" fill="white" font-size="18" font-weight="bold">PRODUKT</text>
+        <text x="530" y="190" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">PRODUKT</text>
     </g>    
     
     <!-- BUBBLE 3: Unten -->
@@ -92,7 +93,7 @@ export function createCoreSVG() {
             data-bubble="3"
             transform="rotate(0 400 420)"
         />
-        <text x="400" y="380" text-anchor="middle" fill="white" font-size="18" font-weight="bold"> TECHNIK </text>
+        <text x="400" y="390" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle"> TECHNIK </text>
     </g>
     
         <!-- BUBBLE 4: Center -->
@@ -106,8 +107,8 @@ export function createCoreSVG() {
             fill="url(#centerGradient)"
             data-bubble="4"
         />
-        <text x="400" y="250" text-anchor="middle" fill="white" font-size="18" font-weight="bold">QUALITÄT &</text>
-        <text x="400" y="270" text-anchor="middle" fill="white" font-size="18" font-weight="bold">EXZELLENZ</text>
+        <text x="400" y="245" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">QUALITÄT &</text>
+        <text x="400" y="267" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">EXZELLENZ</text>
     </g>
        
   `;
