@@ -15,7 +15,7 @@ export function createCoreSVG() {
     <defs>
       <!-- Bubble Gradient -->
       <radialGradient id="bubbleGradient">
-        <stop offset="0%" style="stop-color:#8b9e8f;stop-opacity:0.7" />
+        <stop offset="0%" style="stop-color:#8b9e8f;stop-opacity:0.8" />
         <stop offset="100%" style="stop-color:#5a6b5c;stop-opacity:0.9" />
       </radialGradient>
       
@@ -27,8 +27,8 @@ export function createCoreSVG() {
       
       <!-- Center Gradient -->
       <radialGradient id="centerGradient">
-        <stop offset="0%" style="stop-color:#f4f1e8;stop-opacity:1" />
-        <stop offset="50%" style="stop-color:#d4cfbd;stop-opacity:0.8" />
+        <stop offset="0%" style="stop-color:#f0C84a;stop-opacity:1" />
+        <stop offset="50%" style="stop-color:#d4a843;stop-opacity:0.8" />
         <stop offset="100%" style="stop-color:#8b9e8f;stop-opacity:0" />
       </radialGradient>
       
@@ -51,25 +51,9 @@ export function createCoreSVG() {
     </g>
     
     <!-- BUBBLES mit Glow -->
-    
-    <!-- BUBBLE 1: Organisation -->
+
+    <!-- BUBBLE 1: Oben links --> 
     <g class="bubble-group" data-bubble="1">
-        <ellipse 
-            class="bubble"
-            cx="400"
-            cy="340"
-            rx="140"
-            ry="120"
-            fill="url(#bubbleGradient)"
-            fill-opacity="0.75"
-            data-bubble="1"
-            transform="rotate(0 400 420)"
-        />
-        <text x="400" y="380" text-anchor="middle" fill="white" font-size="18" font-weight="bold"> ORGANISATION </text>
-    </g>
-    
-    <!-- BUBBLE 2: Produkt-Strategie --> 
-    <g class="bubble-group" data-bubble="2">
         <ellipse 
             class="bubble"
             cx="300"
@@ -78,30 +62,14 @@ export function createCoreSVG() {
             ry="120"
             fill="url(#bubbleGradient)"
             fill-opacity="0.75"
-            data-bubble="2"
+            data-bubble="1"
             transform="rotate(-15 300 220)"
         />   
-        <text x="270" y="180" text-anchor="middle" fill="white" font-size="18" font-weight="bold">PRODUKT-</text>
-        <text x="270" y="200" text-anchor="middle" fill="white" font-size="18" font-weight="bold">STRATEGIE</text>
+        <text x="270" y="180" text-anchor="middle" fill="white" font-size="18" font-weight="bold">ORGANISATION</text>
     </g>
     
-    <!-- BUBBLE 3 CENTER Qualität -->
-    <g class="bubble-group" data-bubble="3">
-        <ellipse
-            class="center-bubble"
-            cx="400"
-            cy="265"
-            rx="120"
-            ry="90"
-            fill="url(#centerGradient)"
-            data-bubble="3"
-        />
-        <text x="400" y="255" text-anchor="middle" fill="white" font-size="20" font-weight="bold">QUALITÄT &</text>
-        <text x="400" y="275" text-anchor="middle" fill="white" font-size="20" font-weight="bold">EXZELLENZ</text>
-    </g>
-    
-    <!-- BUBBLE 4: Technik -->
-    <g class="bubble-group" data-bubble="4">
+    <!-- BUBBLE 2: Oben rechts -->
+    <g class="bubble-group" data-bubble="2">
         <ellipse
             class="bubble"
             cx="500"
@@ -110,13 +78,43 @@ export function createCoreSVG() {
             ry="120"
             fill="url(#bubbleGradient)"
             fill-opacity="0.75"
-            data-bubble="4"
+            data-bubble="2"
             transform="rotate(15 500 220)"
         />
-        <text x="530" y="190" text-anchor="middle" fill="white" font-size="18" font-weight="bold">TECHNIK</text>
+        <text x="530" y="190" text-anchor="middle" fill="white" font-size="18" font-weight="bold">PRODUKT</text>
+    </g>    
+    
+    <!-- BUBBLE 3: Unten -->
+    <g class="bubble-group" data-bubble="3">
+        <ellipse 
+            class="bubble"
+            cx="400"
+            cy="340"
+            rx="140"
+            ry="120"
+            fill="url(#bubbleGradient)"
+            fill-opacity="0.75"
+            data-bubble="3"
+            transform="rotate(0 400 420)"
+        />
+        <text x="400" y="380" text-anchor="middle" fill="white" font-size="18" font-weight="bold"> TECHNIK </text>
+    </g>
+    
+        <!-- BUBBLE 4: Center -->
+    <g class="bubble-group" data-bubble="4">
+        <ellipse
+            class="center-bubble"
+            cx="400"
+            cy="255"
+            rx="90"
+            ry="90"
+            fill="url(#centerGradient)"
+            data-bubble="4"
+        />
+        <text x="400" y="250" text-anchor="middle" fill="white" font-size="18" font-weight="bold">QUALITÄT &</text>
+        <text x="400" y="270" text-anchor="middle" fill="white" font-size="18" font-weight="bold">EXZELLENZ</text>
     </g>
        
   `;
-
     return svg;
 }
