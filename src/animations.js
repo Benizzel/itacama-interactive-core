@@ -64,8 +64,8 @@ export function initHoverAnimations() {
         // Mouse Enter
         group.addEventListener('mouseenter', () => {
 
-            //TODO Wieso wird Gradiant nicht auf Hover gesetzt?
-            group.setAttribute('fill', 'url(#bubbleGradientHover)');
+            //filter von svg-builder anwenden
+            bubble.setAttribute('filter', 'url(#glow)');
 
             // Bubble vergrössern
             gsap.to(bubble, {
@@ -79,9 +79,8 @@ export function initHoverAnimations() {
         // Mouse Leave (Maus weg)
         group.addEventListener('mouseleave', () => {
 
-            // Zurück zum normalen Gradient
-            bubble.setAttribute('fill', 'url(#bubbleGradient)');
-
+            //filter wieder entfernen
+            bubble.removeAttribute('filter');
             // Bubble zurück auf normale Grösse
             gsap.to(bubble, {
                 scale: 1,

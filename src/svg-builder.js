@@ -18,29 +18,24 @@ export function createCoreSVG() {
         <stop offset="0%" style="stop-color:#8b9e8f;stop-opacity:0.8" />
         <stop offset="100%" style="stop-color:#5a6b5c;stop-opacity:0.9" />
       </radialGradient>
-      
-      <!-- Bubble Gradient HOVER -->
-      <radialGradient id="bubbleGradientHover">
-        <stop offset="0%" style="stop-color:#f4d03f;stop-opacity:0.95" />
-        <stop offset="100%" style="stop-color:#7a8d7c;stop-opacity:1" />
-      </radialGradient>
-      
+  
       <!-- Center Gradient -->
       <radialGradient id="centerGradient">
         <stop offset="0%" style="stop-color:#f0C84a;stop-opacity:1" />
         <stop offset="50%" style="stop-color:#d4a843;stop-opacity:0.8" />
         <stop offset="100%" style="stop-color:#8b9e8f;stop-opacity:0" />
       </radialGradient>
-      
-      <!-- Glow Filter (NEU!) -->
-      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-        <!--Weichzeichner -->
-        <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+  
+      <!-- Glow Filter -->
+      <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur stdDeviation="6" result="blur"/>
+        <feFlood flood-color="#f0C84a" flood-opacity="0.9" result="color"/>
+        <feComposite in="color" in2="blur" operator="in" result="coloredBlur"/>
         <feMerge>
           <feMergeNode in="coloredBlur"/>
           <feMergeNode in="SourceGraphic"/>
         </feMerge>
-      </filter>      
+      </filter>
     </defs>
     
     <!-- DECORATIVE LINES -->
