@@ -3,6 +3,8 @@
  * Liest CMS-Daten aus dem DOM und zeigt Info-Box bei Bubble-Klick
  */
 
+import { drawConnectorLine } from './connector-lines.js';
+
 export function initInfoBox() {
     // 1. CMS-Daten aus DOM lesen
     const expertiseData = {};
@@ -38,6 +40,7 @@ export function initInfoBox() {
             visibleBox.querySelector('.info-link').href = `https://www.itacama.ch/expertise/${data.slug}`; //fügt href Attribut hinzu
 
             visibleBox.classList.remove('info-box--hidden'); // damit Info-Box angezeigt wird
+            drawConnectorLine(rank); // zeichnet die Verbindungslinie
         });
     });
 }
