@@ -31,27 +31,37 @@ export function drawConnectorLine(bubbleRank) {
     overlaySVG.setAttribute('width', wrapperRect.width.toString());
     overlaySVG.setAttribute('height', wrapperRect.height.toString());
 
-    // Mittelpunkte relativ zum Wrapper berechnen
-    const x1 = bubbleRect.left + bubbleRect.width / 2 - wrapperRect.left;
-    const y1 = bubbleRect.top + bubbleRect.height / 2 - wrapperRect.top;
-    const x2 = boxRect.left + boxRect.width / 2 - wrapperRect.left;
-    const y2 = boxRect.top + boxRect.height / 2 - wrapperRect.top;
+    // Mittelpunkte berechnen
+    const bubbleCenterX = bubbleRect.left + bubbleRect.width / 2 - wrapperRect.left;
+    const bubbleCenterY = bubbleRect.top + bubbleRect.height / 2 - wrapperRect.top;
+    const boxCenterX = boxRect.left + boxRect.width / 2 - wrapperRect.left;
+    const boxCenterY = boxRect.top + boxRect.height / 2 - wrapperRect.top;
 
-    // Linie zeichnen
+    // Bestimmen, ob Info-Box links oder rechts von der Bubble liegt
+    const infoBoxIsLeft = boxCenterX < bubbleCenterX;
+
+    // Startpunkt: Kante der Info-Box (nicht Mitte)
+    const x1 = infoBoxIsLeft
+        ? boxRect.right - wrapperRect.left   // rechte Kante wenn Box links
+        : boxRect.left - wrapperRect.left;   // linke Kante wenn Box rechts
+    const y1 = boxCenterY;
+
+    // Endpunkt: Mitte der Bubble
+    const x2 = bubbleCenterX;
+    const y2 = bubbleCenterY;
+
+    // Geschwungene Linie (Bezier-Kurve) zeichnen
+    const dx = x2 - x1;
+    const curvePath = `M ${x1},${y1} C ${x1 + dx/2},${y1 - curveStrength} ${x2 - dx/2},${y2 - curveStrength} ${x2},${y2}`;
+
     overlaySVG.innerHTML = '';
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', x1.toString());
-    line.setAttribute('y1', y1.toString());
-    line.setAttribute('x2', x2.toString());
-    line.setAttribute('y2', y2.toString());
-    line.setAttribute('stroke', '#d4cfbd');
-    line.setAttribute('stroke-width', '2');
-    line.setAttribute('opacity', '0.8');
-    console.log('Bubble:', x1, y1, '| InfoBox:', x2, y2);
-    console.log('wrapperRect:', wrapperRect.left, wrapperRect.top, wrapperRect.width);
-    console.log('bubbleRect raw:', bubbleRect.left, bubbleRect.top);
-    console.log('boxRect raw:', boxRect.left, boxRect.top);
-    overlaySVG.appendChild(line);
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', curvePath);
+    path.setAttribute('stroke', '#d4cfbd');
+    path.setAttribute('stroke-width', '2');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('opacity', '0.8');
+    overlaySVG.appendChild(path);
 }
 
 export function clearConnectorLine() {
