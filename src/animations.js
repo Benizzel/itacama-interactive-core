@@ -57,36 +57,48 @@ export function initHoverAnimations() {
     const bubbleGroups = document.querySelectorAll('.bubble-group');
 
     bubbleGroups.forEach(group => {
-        const bubble = group.querySelector('.bubble');
+        const bubble = group.querySelector('.bubble, .center-bubble');
 
-        if (!bubble) return; //wenn keine class=bubble in bubble group z.B. wenn nur class=center-bubble enthalten
+        if (!bubble) return;
 
         // Mouse Enter
         group.addEventListener('mouseenter', () => {
+            // Alle Bubbles zurücksetzen
+            bubbleGroups.forEach(group => {
+                const bubble = group.querySelector('.bubble, .center-bubble');
+                if (bubble) {
+                    bubble.removeAttribute('filter');
+                    gsap.to(bubble, {
+                        scale: 1,
+                        duration: 0.2,
+                        ease: 'power2.in'
+                    })
+                }
+            });
 
-            //filter von svg-builder anwenden
-            bubble.setAttribute('filter', 'url(#glow)');
-
-            // Bubble vergrössern
+            // Aktuelle Bubble hervorheben
+            bubble.setAttribute('filter', 'url(#glow');
             gsap.to(bubble, {
                 scale: 1.1,
                 transformOrigin: '50% 50%',
                 duration: 0.4,
                 ease: 'power2.out',
-            });
-        });
+            })
+        })
+    });
 
-        // Mouse Leave (Maus weg)
-        group.addEventListener('mouseleave', () => {
-
-            //filter wieder entfernen
-            bubble.removeAttribute('filter');
-            // Bubble zurück auf normale Grösse
-            gsap.to(bubble, {
-                scale: 1,
-                duration: 0.3,
-                ease: 'power2.in'
-            });
+    // Reset, wenn Maus den gesamten SVG-Bereich verlässt
+    const coreWrapper = document.querySelector('#core-wrapper');
+    coreWrapper.addEventListener('mouseleave', () => {
+        bubbleGroups.forEach(group => {
+            const bubble = group.querySelector('.bubble, .center-bubble');
+            if (bubble) {
+                bubble.removeAttribute('filter');
+                gsap.to(bubble, {
+                    scale: 1,
+                    duration: 0.3,
+                    ease: 'power2.in' });
+            }
         });
     });
 
