@@ -19,7 +19,7 @@ body {
    ========================================== */
 
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   text-align: center;
 }
@@ -52,7 +52,8 @@ h1 {
    ========================================== */
 
 #core-wrapper {
-  flex: 1;
+  flex: 1 0 560px;
+  min-width: 560px;
   overflow: visible;
 }
 
@@ -165,5 +166,15 @@ h1 {
 
 .decorative-lines path {
   /* Styles werden von GSAP gesteuert */
+}
+
+/* ==========================================
+   RESPONSIVE / WEBFLOW BREAKPOINTS
+   ========================================== */
+
+@media (max-width: 1180px) {
+  #interactive-wrapper {
+    display: none;
+  }
 }
 
