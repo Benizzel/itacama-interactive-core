@@ -57,7 +57,6 @@ export function createCoreSVG() {
             ry="120"
             fill="url(#bubbleGradient)"
             fill-opacity="0.75"
-            data-bubble="1"
             transform="rotate(-15 300 220)"
         />   
         <text x="270" y="190" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">ORGANISATION</text>
@@ -74,7 +73,6 @@ export function createCoreSVG() {
             ry="120"
             fill="url(#bubbleGradient)"
             fill-opacity="0.75"
-            data-bubble="2"
             transform="rotate(15 500 220)"
         />
         <text x="530" y="190" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">PRODUKT</text>
@@ -90,7 +88,6 @@ export function createCoreSVG() {
             ry="120"
             fill="url(#bubbleGradient)"
             fill-opacity="0.75"
-            data-bubble="3"
             transform="rotate(0 400 420)"
         />
         <text x="400" y="390" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle"> TECHNIK </text>
@@ -105,7 +102,6 @@ export function createCoreSVG() {
             rx="90"
             ry="90"
             fill="url(#centerGradient)"
-            data-bubble="4"
         />
         <text x="400" y="245" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">QUALITÄT &</text>
         <text x="400" y="267" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">EXZELLENZ</text>
