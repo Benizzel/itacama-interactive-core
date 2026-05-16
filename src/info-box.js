@@ -8,6 +8,8 @@ import { drawConnectorLine } from './connector-lines.js';
 export function initInfoBox() {
     // 1. CMS-Daten aus DOM lesen
     const expertiseData = {};
+    let activeRank = null;
+    let resizeTimeout = null;
 
     // Selektiere jedes Element in expertise-data, das ein data-rank-Attribut hat
     document.querySelectorAll('#expertise-data [data-rank]').forEach(el => {
@@ -27,6 +29,8 @@ export function initInfoBox() {
         const data = expertiseData[rank];
         if (!data) return;
 
+        activeRank = rank;
+
         // Hide all boxes
         document.querySelectorAll('.info-box').forEach(box => {
             box.classList.add('info-box--hidden');
@@ -42,6 +46,16 @@ export function initInfoBox() {
 
         visibleBox.classList.remove('info-box--hidden'); // damit Info-Box angezeigt wird
         drawConnectorLine(rank); // zeichnet die Verbindungslinie
+    }
+
+    function redrawConnectorLineAfterResize() {
+        if (!activeRank) return;
+
+        clearTimeout(resizeTimeout);
+
+        resizeTimeout = setTimeout(() => {
+            drawConnectorLine(activeRank);
+        }, 10);
     }
 
     // 2. Klick und Tastatur auf jede Bubble
@@ -66,4 +80,6 @@ export function initInfoBox() {
             }
         });
     });
+
+    window.addEventListener('resize', redrawConnectorLineAfterResize);
 }
