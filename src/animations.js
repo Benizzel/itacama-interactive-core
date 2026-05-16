@@ -77,7 +77,7 @@ export function initHoverAnimations() {
             });
 
             // Aktuelle Bubble hervorheben
-            bubble.setAttribute('filter', 'url(#glow');
+            bubble.setAttribute('filter', 'url(#glow)');
             gsap.to(bubble, {
                 scale: 1.1,
                 transformOrigin: '50% 50%',

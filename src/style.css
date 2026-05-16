@@ -139,6 +139,16 @@ h1 {
 
 .bubble-group {
   cursor: pointer;
+  outline: none;
+}
+
+.bubble-group text {
+  pointer-events: none;
+}
+
+.bubble-group:focus-visible .bubble,
+.bubble-group:focus-visible .center-bubble {
+  filter: url(#glow); /*glow ist in SVG definiert*/
 }
 
 .bubble {

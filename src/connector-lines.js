@@ -52,7 +52,7 @@ export function drawConnectorLine(bubbleRank) {
 
     // Geschwungene Linie (Bezier-Kurve) zeichnen
     const dx = x2 - x1;
-    const curvePath = `M ${x1},${y1} C ${x1 + dx/2},${y1 - curveStrength} ${x2 - dx/2},${y2 - curveStrength} ${x2},${y2}`;
+    const curvePath = `M ${x1},${y1} C ${x1 + dx/2},${y1} ${x2 - dx/2},${y2} ${x2},${y2}`;
 
     overlaySVG.innerHTML = '';
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
