@@ -1,7 +1,7 @@
 /* ==========================================
    GLOBAL STYLES
    ========================================== */
-
+/*
 * {
   margin: 0;
   padding: 0;
@@ -12,12 +12,12 @@ body {
   padding: 2rem;
   background: #f9f9f9;
   font-family: 'Ubuntu', sans-serif;
-}
+} */
 
 /* ==========================================
    CONTAINER
    ========================================== */
-
+/*
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -29,7 +29,7 @@ h1 {
   font-weight: 300;
   letter-spacing: 3px;
   margin-bottom: 3rem;
-}
+} */
 
 /* ==========================================
    INTERACTIVE WRAPPER
@@ -38,6 +38,7 @@ h1 {
 #interactive-wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
   background: white;
   border-radius: 12px;
@@ -52,7 +53,9 @@ h1 {
    ========================================== */
 
 #core-wrapper {
-  flex: 1 0 560px;
+  flex: 0 0 620px;
+  width: 100%;
+  max-width: 620px;
   min-width: 560px;
   overflow: visible;
 }
