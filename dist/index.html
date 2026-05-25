@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Itacama Interactive Core</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/assets/index-C61q0edp.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-B1vCR8Ax.css">
+</head>
+<body>
+
+<!-- Container für Interactive Core -->
+<div class="container">
+  <h1>itacama Interactive Core</h1>
+
+  <!-- CMS Dummy Data - später von Webflow -->
+  <div id="expertise-data" style="display:none">
+    <div data-rank="1" data-title="Organisation" data-teaser="Wie wir zusammenarbeiten. Nachhaltige Strukturen schaffen, die Zusammenarbeit fördern." data-slug="organisation"></div>
+    <div data-rank="2" data-title="Produkt" data-teaser="Produkte die wirken. Strategie die trägt." data-slug="produktstrategie"></div>
+    <div data-rank="3" data-title="Technik" data-teaser="Technologie die verbindet, nicht trennt." data-slug="technik"></div>
+    <!-- Center Bubble must have rank 4 -->
+    <div data-rank="4" data-title="Qualität" data-teaser="Qualität ist keine Checkliste, sondern eine Haltung." data-slug="qualitat"></div>
+  </div>
+
+  <div id="interactive-wrapper">
+
+    <!-- Info-Boxen LINKS -->
+    <div class="info-col info-col--left">
+      <!-- Oben -->
+      <div id="info-box-1" class="info-box info-box--hidden">
+        <h3 class="info-title"></h3>
+        <p class="info-teaser"></p>
+        <a class="info-link" href="#">Mehr erfahren</a>
+      </div>
+      <!-- Unten -->
+      <div id="info-box-3" class="info-box info-box--hidden">
+        <h3 class="info-title"></h3>
+        <p class="info-teaser"></p>
+        <a class="info-link" href="#">Mehr erfahren</a>
+      </div>
+    </div>
+
+    <div id="core-wrapper">
+      <!-- SVG wird hier von svg-builder.js eingefügt -->
+    </div>
+
+    <!-- Info-Boxen RECHTS -->
+    <div class="info-col info-col--right">
+      <!-- Oben -->
+      <div id="info-box-2" class="info-box info-box--hidden">
+        <h3 class="info-title"></h3>
+        <p class="info-teaser"></p>
+        <a class="info-link" href="#">Mehr erfahren</a>
+      </div>
+      <!-- Unten -->
+      <div id="info-box-4" class="info-box info-box--hidden">
+        <h3 class="info-title"></h3>
+        <p class="info-teaser"></p>
+        <a class="info-link" href="#">Mehr erfahren</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Mobile Expertise List (wird unter 1180px eingeblendet) -->
+  <div class="mobile-expertise-list">
+    <!-- Diese Struktur wird in Webflow ebenfalls dynamisch durch die Collection List erzeugt -->
+    <div class="mobile-expertise-item">
+      <h3>Organisation</h3>
+      <p>Wie wir zusammenarbeiten. Nachhaltige Strukturen schaffen, die Zusammenarbeit fördern.</p>
+      <a href="/expertise/organisation" class="info-link">Mehr erfahren</a>
+    </div>
+    <div class="mobile-expertise-item">
+      <h3>Produkt</h3>
+      <p>Produkte die wirken. Strategie die trägt.</p>
+      <a href="/expertise/produktstrategie" class="info-link">Mehr erfahren</a>
+    </div>
+    <div class="mobile-expertise-item">
+      <h3>Technik</h3>
+      <p>Technologie die verbindet, nicht trennt.</p>
+      <a href="/expertise/technik" class="info-link">Mehr erfahren</a>
+    </div>
+    <div class="mobile-expertise-item">
+      <h3>Qualität</h3>
+      <p>Qualität ist keine Checkliste, sondern eine Haltung.</p>
+      <a href="/expertise/qualitat" class="info-link">Mehr erfahren</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
