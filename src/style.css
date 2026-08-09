@@ -72,6 +72,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
+  position: relative; /* Neu wegen Box-Höhen Problem */
 }
 
 /* ==========================================
@@ -84,12 +85,16 @@ h1 {
   text-align: left;
   opacity: 1;
   transition: opacity 0.3s ease;
+  position: absolute; /* Neu wegen Box-Höhen Problem */
+  top: 0; /* Neu wegen Box-Höhen Problem */
+  left: 0; /* Neu wegen Box-Höhen Problem */
 }
 
 .info-box--hidden {
   opacity: 0;
   pointer-events: none;
   transition: none;
+  visibility: hidden; /* Neu wegen Box-Höhen Problem */
 }
 
 .info-box h3 {
