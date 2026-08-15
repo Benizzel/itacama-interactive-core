@@ -3,7 +3,7 @@
  * Liest CMS-Daten aus dem DOM und zeigt Info-Box bei Bubble-Klick
  */
 
-import { drawConnectorLine } from './connector-lines.js';
+import { clearConnectorLine, drawConnectorLine } from './connector-lines.js';
 
 export function initInfoBox() {
     // === 1. STATE UND DOM-ELEMENTE ===
@@ -129,6 +129,13 @@ export function initInfoBox() {
         drawConnectorLine(rank);
     }
 
+    function resetAllInfoBoxes() {
+        hideAllInfoBoxes();
+        resetActiveBubbles();
+        clearConnectorLine();
+        activeRank = null;
+    }
+
     // === 7. RESIZE / NEBENLOGIK ===
     function redrawConnectorLineAfterResize() {
         if (!activeRank) return;
@@ -181,5 +188,22 @@ export function initInfoBox() {
         });
     });
 
+    // Hide Info-Boxes and reset Bubble when clicking outside a group or esc
+    document.addEventListener('click', (event) => {
+        const clickedElement = event.target;
+        const isInsideBubbleGroup = clickedElement.closest('.bubble-group');
+        
+        if (!isInsideBubbleGroup) {
+            resetAllInfoBoxes();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            resetAllInfoBoxes();
+        }
+    });
+
+    // Redraw Connector-Lines when resizing window
     window.addEventListener('resize', redrawConnectorLineAfterResize);
 }
