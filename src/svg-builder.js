@@ -104,8 +104,8 @@ export function createCoreSVG() {
             ry="90"
             fill="url(#centerGradient)"
         />
-        <text x="400" y="290" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">QUALITÄT &</text>
-        <text x="400" y="312" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">EXZELLENZ</text>
+        <text x="400" y="290" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">Qualität &</text>
+        <text x="400" y="312" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">Exzellenz</text>
     </g>
        
   `;
