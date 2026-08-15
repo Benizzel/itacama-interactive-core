@@ -47,42 +47,42 @@ export function createCoreSVG() {
     
     <!-- BUBBLES mit Glow -->
 
-    <!-- BUBBLE 1: Oben links --> 
+    <!-- BUBBLE 1: Oben -->
     <g class="bubble-group" data-bubble="1">
         <ellipse 
             class="bubble"
-            cx="300"
+            cx="400"
             cy="220"
             rx="140"
             ry="120"
             fill="url(#bubbleGradient)"
             fill-opacity="0.75"
-            transform="rotate(-15 300 220)"
+            transform="rotate(0 400 420)"
+        />
+        <text x="400" y="185" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle"> Organisation </text>
+    </g>
+
+    <!-- BUBBLE 2: Unten links --> 
+    <g class="bubble-group" data-bubble="2">
+        <ellipse 
+            class="bubble"
+            cx="300"
+            cy="340"
+            rx="140"
+            ry="120"
+            fill="url(#bubbleGradient)"
+            fill-opacity="0.75"
+            transform="rotate(0 400 420)"
         />   
-        <text x="270" y="190" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">ORGANISATION</text>
+        <text x="270" y="365" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">Produkt</text>
         
     </g>
     
-    <!-- BUBBLE 2: Oben rechts -->
-    <g class="bubble-group" data-bubble="2">
+    <!-- BUBBLE 3: Unten rechts -->
+    <g class="bubble-group" data-bubble="3">
         <ellipse
             class="bubble"
             cx="500"
-            cy="220"
-            rx="140"
-            ry="120"
-            fill="url(#bubbleGradient)"
-            fill-opacity="0.75"
-            transform="rotate(15 500 220)"
-        />
-        <text x="530" y="190" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">PRODUKT</text>
-    </g>    
-    
-    <!-- BUBBLE 3: Unten -->
-    <g class="bubble-group" data-bubble="3">
-        <ellipse 
-            class="bubble"
-            cx="400"
             cy="340"
             rx="140"
             ry="120"
@@ -90,21 +90,22 @@ export function createCoreSVG() {
             fill-opacity="0.75"
             transform="rotate(0 400 420)"
         />
-        <text x="400" y="390" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle"> TECHNIK </text>
-    </g>
+        <text x="530" y="365" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">Technik</text>
+    </g>    
+
     
         <!-- BUBBLE 4: Center -->
     <g class="bubble-group" data-bubble="4">
         <ellipse
             class="center-bubble"
             cx="400"
-            cy="255"
+            cy="300"
             rx="90"
             ry="90"
             fill="url(#centerGradient)"
         />
-        <text x="400" y="245" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">QUALITÄT &</text>
-        <text x="400" y="267" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">EXZELLENZ</text>
+        <text x="400" y="290" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">QUALITÄT &</text>
+        <text x="400" y="312" text-anchor="middle" fill="white" font-size="18" font-weight="bold" dominant-baseline="middle">EXZELLENZ</text>
     </g>
        
   `;
