@@ -71,7 +71,6 @@ export function initHoverAnimations() {
         });
     }
 
-
     bubbleGroups.forEach(group => {
         const bubble = group.querySelector('.bubble, .center-bubble');
 
