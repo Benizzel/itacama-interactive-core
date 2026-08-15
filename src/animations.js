@@ -56,6 +56,22 @@ export function initHoverAnimations() {
 
     const bubbleGroups = document.querySelectorAll('.bubble-group');
 
+    // ZENTRALE RESET-FUNKTION
+    function resetAllBubbles() {
+        bubbleGroups.forEach(group => {
+            const bubble = group.querySelector('.bubble, .center-bubble');
+            if (bubble) {
+                bubble.removeAttribute('filter');
+                gsap.to(bubble, {
+                    scale: 1,
+                    duration: 0.3,
+                    ease: 'power2.in'
+                });
+            }
+        });
+    }
+
+
     bubbleGroups.forEach(group => {
         const bubble = group.querySelector('.bubble, .center-bubble');
 
@@ -63,18 +79,7 @@ export function initHoverAnimations() {
 
         // Mouse Enter
         group.addEventListener('mouseenter', () => {
-            // Alle Bubbles zurücksetzen
-            bubbleGroups.forEach(group => {
-                const bubble = group.querySelector('.bubble, .center-bubble');
-                if (bubble) {
-                    bubble.removeAttribute('filter');
-                    gsap.to(bubble, {
-                        scale: 1,
-                        duration: 0.2,
-                        ease: 'power2.in'
-                    })
-                }
-            });
+            resetAllBubbles();
 
             // Aktuelle Bubble hervorheben
             bubble.setAttribute('filter', 'url(#glow)');
@@ -85,21 +90,16 @@ export function initHoverAnimations() {
                 ease: 'power2.out',
             })
         })
+
+        group.addEventListener('mouseleave', () => {
+            resetAllBubbles();
+        });
     });
 
     // Reset, wenn Maus den gesamten SVG-Bereich verlässt
     const coreWrapper = document.querySelector('#core-wrapper');
     coreWrapper.addEventListener('mouseleave', () => {
-        bubbleGroups.forEach(group => {
-            const bubble = group.querySelector('.bubble, .center-bubble');
-            if (bubble) {
-                bubble.removeAttribute('filter');
-                gsap.to(bubble, {
-                    scale: 1,
-                    duration: 0.3,
-                    ease: 'power2.in' });
-            }
-        });
+        resetAllBubbles();
     });
 
     console.log('✅ Hover Animationen aktiviert!');
